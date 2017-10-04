@@ -9,6 +9,9 @@ import root from '../sagas/root'
 import t1 from './t1'
 import t2 from './t2'
 
+import 'materialize-css/dist/css/materialize.css'
+import 'materialize-css/dist/js/materialize'
+
 const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(

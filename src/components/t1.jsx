@@ -5,6 +5,7 @@ class t1 extends Component {
         return (
             <div>
                 Hello 1
+                <a class="waves-effect waves-light btn">button</a>
             </div>
         );
     }
