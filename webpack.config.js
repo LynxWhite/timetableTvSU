@@ -9,7 +9,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = merge(common, build_configs, {
     output: {
         path: path.join(__dirname, 'public'),
-        filename: 'js/bundle.js'
+        filename: 'js/bundle.js',
+        publicPath: '/'
     },
     plugins: 
         (webpack_mode !== 'development' ? [new CleanWebpackPlugin(['public'])] : [])

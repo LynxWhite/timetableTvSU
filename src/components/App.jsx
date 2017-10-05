@@ -31,7 +31,7 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
-                        <Route exact path='/:faculty' component={TableWrapper}/>
+                        <Route exact path='/test/:faculty' component={TableWrapper}/>
                         <Route exact path='/edit' component={t2}/>
                     </Switch>
                 </Router>
