@@ -6,11 +6,12 @@ import createSagaMiddleware from 'redux-saga'
 import reducer from '../reducers'
 import root from '../sagas/root'
 
-import t1 from './t1'
+import TableWrapper from './table/TableWrapper'
 import t2 from './t2'
 
 import 'materialize-css/dist/css/materialize.css'
-import 'materialize-css/dist/js/materialize'
+import 'materialize-css/dist/js/materialize.js'
+import '../resources/styl/style.styl'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -30,7 +31,7 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
-                        <Route exact path='/' component={t1}/>
+                        <Route exact path='/:faculty' component={TableWrapper}/>
                         <Route exact path='/edit' component={t2}/>
                     </Switch>
                 </Router>
