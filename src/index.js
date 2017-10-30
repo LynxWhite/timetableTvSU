@@ -6,7 +6,3 @@ ReactDOM.render(
     <App/>
     , document.getElementById('app')
 )
-
-$( document ).ready(function() {
-    $('.button-collapse').sideNav()
-})

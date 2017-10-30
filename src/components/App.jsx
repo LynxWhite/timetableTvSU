@@ -7,11 +7,9 @@ import reducer from '../reducers'
 import root from '../sagas/root'
 
 import TableWrapper from './table/TableWrapper'
-import t2 from './t2'
 import PageWrapper from './page/PageWrapper'
+import Test from './test/test'
 
-import 'materialize-css/dist/css/materialize.css'
-import 'materialize-css/dist/js/materialize.js'
 import '../resources/styl/style.styl'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -33,8 +31,8 @@ class App extends Component {
                 <Router>
                     <Switch>
                         <Route exact path='/test/:faculty' component={TableWrapper}/>
-                        <Route path='/' component={PageWrapper}/> 
-                        <Route exact path='/edit' component={t2}/>
+                        <Route path='/trat' component={PageWrapper}/> 
+                        <Route path='/' component={Test}/>
                     </Switch>
                 </Router>
             </Provider>
