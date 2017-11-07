@@ -1,15 +1,14 @@
 import React, {Component} from 'react'
-import FacultyMenu from './FacultyMenu'
-import DirectionMenu from './DirectionMenu'
-import { Route, Switch } from 'react-router-dom'
+import PageHeader from './PageHeader'
+import DayTable from './DayTable'
+
 class PageWrapper extends Component {
     render() {
         return (
             <div>
-                <FacultyMenu/>
-                <Switch>
-                    <Route path='/:faculty' component={DirectionMenu}/>
-                </Switch>
+                <PageHeader/>
+                <h3> Понедельник </h3>
+                <DayTable/>
             </div>
         )
     }

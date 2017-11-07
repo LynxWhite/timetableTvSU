@@ -6,10 +6,9 @@ import createSagaMiddleware from 'redux-saga'
 import reducer from '../reducers'
 import root from '../sagas/root'
 
-import TableWrapper from './table/TableWrapper'
 import PageWrapper from './page/PageWrapper'
-import Test from './test/test'
 
+import 'bulma'
 import '../resources/styl/style.styl'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -30,9 +29,7 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
-                        <Route exact path='/test/:faculty' component={TableWrapper}/>
-                        <Route path='/trat' component={PageWrapper}/> 
-                        <Route path='/' component={Test}/>
+                        <Route path='/' component={PageWrapper}/>
                     </Switch>
                 </Router>
             </Provider>
