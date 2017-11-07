@@ -6,6 +6,10 @@ function* getFaculties() {
     try {
         const response = yield call(Api.getFaculties)
         yield put({type: ActionTypes.GET_FACULTIES_SUCCESS, payload: response})
+        
+        for (let i = 0; i < response.length; i++) {
+            yield put({type: ActionTypes.GET_DIRECTIONS_OF_FACULTY_REQUEST, id: response[i]._id})
+        }
     }
     catch (e) {
         yield put({type: ActionTypes.GET_FACULTIES_FAILED, message: e.message})
@@ -15,7 +19,7 @@ function* getFaculties() {
 function* getDirectionsOfFaculty(data) {
     try {
         const response = yield call(Api.getDirectionsOfFaculry, data.id)
-        yield put({type: ActionTypes.GET_DIRECTIONS_OF_FACULTY_SUCCESS, payload: response})
+        yield put({type: ActionTypes.GET_DIRECTIONS_OF_FACULTY_SUCCESS, payload: response, _id: data.id})
     }
     catch (e) {
         yield put({type: ActionTypes.GET_DIRECTIONS_OF_FACULTY_FAILED, message: e.message})
