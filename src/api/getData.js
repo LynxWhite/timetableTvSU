@@ -13,3 +13,10 @@ export function getDirectionsOfFaculry(id) {
             return res.data
         })
 }
+
+export function getTimeOfFaculty(id) {
+    return axios.get('http://localhost:1337/times/' + id)
+        .then(res => {
+            return res.data
+        })
+}

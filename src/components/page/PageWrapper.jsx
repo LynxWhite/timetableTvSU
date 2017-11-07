@@ -15,7 +15,16 @@ class PageWrapper extends Component {
     }
 
     render() {
-        console.log(this.props.faculties)
+        let directions = []
+        let time = []
+        if (this.props.faculties.length)
+            this.props.faculties.map(faculty => {
+                if (faculty.abbr_key === 'PMK') {
+                    directions = faculty.directions
+                    time = faculty.time
+                }
+            })
+        console.log(this.props.faculties, directions, time)
         return (
             <div>
                 <PageHeader/>
@@ -23,7 +32,7 @@ class PageWrapper extends Component {
                     week.map((dayName, key)=>(
                         <div key = {key}>
                             <h3> {dayName} </h3>
-                            <DayTable day={dayName} />
+                            <DayTable day={dayName} directions={directions} time={time}/>
                         </div>
                     ))
                 }

@@ -1,25 +1,33 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 class DayTable extends Component {
     render() {
+        const directions = this.props.directions || []
+        const facultyTime = this.props.time || []
+        console.log(facultyTime)
         return (
             <table className='table is-bordered is-hoverable is-fullwidth'>
                 <thead>
                     <tr>
-                        <td>ПМК</td>
-                        <td>ПМК</td>
-                        <td>ПМК</td>
+                        <td>Время</td>
+                        {directions.map((direction, key)=>(
+                            <td key={key} colSpan='2'> {direction.name} </td>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>
-                        8:30 - 10:05
-                        </th>
-                        <td>один</td>
-                        <td>Два</td>
-                        <td>Три</td>
-                    </tr>
+                    {facultyTime.map((time, key) => (
+                        <tr key={key}>
+                            <th>
+                                {time.time}
+                            </th>
+                            <td>один</td>
+                            <td>Два</td>
+                            <td>Три</td>
+                            <td>Четыре</td>
+                        </tr>
+                    ))}
                 </tbody>
                 <tfoot>
                     <tr>
@@ -31,6 +39,11 @@ class DayTable extends Component {
             </table>
         )
     }
+}
+
+DayTable.propTypes = {
+    directions: PropTypes.array,
+    time: PropTypes.array
 }
 
 export default DayTable
