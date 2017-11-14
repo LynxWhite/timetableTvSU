@@ -5,7 +5,14 @@ class DayTable extends Component {
     render() {
         const directions = this.props.directions || []
         const facultyTime = this.props.time || []
-        console.log(facultyTime)
+        const subgroups = [1, 2]
+        const someSubjects = {}
+        if (directions.length) {
+            const someItem = {1: 'Дискретная математика'}
+            someSubjects['8:30-10:05'] = {}
+            someSubjects['8:30-10:05'][directions[0].name] = someItem
+        }
+        console.log(someSubjects)
         return (
             <table className='table is-bordered is-hoverable is-fullwidth'>
                 <thead>
@@ -22,24 +29,30 @@ class DayTable extends Component {
                             <th>
                                 {time.time}
                             </th>
-                            <td>один</td>
-                            <td>Два</td>
-                            <td>Три</td>
-                            <td>Четыре</td>
+                            {
+                                directions.map((direction, dirKey)=>(
+                                    subgroups.map((item, ikey) =>(
+                                        <td key={dirKey + '_' + ikey}>
+                                            {someSubjects[time.time] ? someSubjects[time.time][direction.name][item] :  'Пусто'}
+                                        </td>
+                                    )) 
+                                ))
+                            }
                         </tr>
                     ))}
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td>ПМК</td>
-                        <td>ПМК</td>
-                        <td>ПМК</td>
-                    </tr>
-                </tfoot>
             </table>
         )
     }
 }
+
+/*
+                <tfoot>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tfoot>
+*/
 
 DayTable.propTypes = {
     directions: PropTypes.array,
