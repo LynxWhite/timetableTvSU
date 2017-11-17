@@ -11,6 +11,8 @@ import PageWrapper from './page/PageWrapper'
 import 'bulma'
 import '../resources/styl/style.styl'
 
+import PageComponent from './experience/PageComponent'
+
 const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
@@ -29,7 +31,8 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
-                        <Route path='/' component={PageWrapper}/>
+                        <Route path='/t' component={PageWrapper}/>
+                        <Route path='/' component={PageComponent}/>
                     </Switch>
                 </Router>
             </Provider>
