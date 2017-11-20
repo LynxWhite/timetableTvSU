@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import DayComponent from './DayComponent'
+import DayComponent from './dayComponents/DayComponent'
 
 const week = [
     'Понедельник',

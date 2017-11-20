@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import DayHeader from './DayHeader'
+
 
 const containerStyle = {
     display: 'flex',
@@ -18,7 +20,7 @@ const itemStyle = {
 
 class DayComponent extends Component {
     render() {
-        const times = ['', ...this.props.times]
+        const times = [...this.props.times]
         const dayTimeTable = {}
         const growLenght = this.props.directions.length + 1
         console.log(growLenght)
@@ -27,7 +29,6 @@ class DayComponent extends Component {
                 if (!(this.props.timetableExample
                     && this.props.timetableExample[direction.abbr_key]
                     && this.props.timetableExample[direction.abbr_key][time])
-                    || key === 0
                 ) {
                     const objects = {name: 'null', grow: 1}
                     const timeObject = {[time]: objects}
@@ -45,19 +46,16 @@ class DayComponent extends Component {
                 dayTimeTable[direction.abbr_key] = Object.assign({}, dayTimeTable[direction.abbr_key], timeObject)
             })
         })
-        console.log(dayTimeTable)
         return (
             <div style={containerStyle}>
-                <h4 className='title is-4' style={{backgroundColor: 'green'}}> {this.props.day} </h4>
+                <h4 className='title is-4' style={{backgroundColor: 'green', margin: 0}}> {this.props.day} </h4>
                 <div style={containerStyle}> 
+                    <DayHeader
+                        directions={this.props.directions}
+                    />
                     {times.map((time, key) => (
                         <div key={key} style={columnStyle}>
                             <div style={itemStyle}>{time}</div>
-                            {!time && this.props.directions.map((direction, dkey) => (
-                                <div key={dkey} style={itemStyle}>
-                                    {direction.abbr}
-                                </div>
-                            ))}
                             {time && this.props.directions.map((direction, dkey) => (
                                 dayTimeTable[direction.abbr_key][time] &&
                                 <div key={dkey} style={Object.assign({}, itemStyle, {flex: dayTimeTable[direction.abbr_key][time].grow})}>
