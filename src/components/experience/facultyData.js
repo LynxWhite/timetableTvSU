@@ -96,3 +96,40 @@ export const directions = {
 /* ############################################################################### */
 
 export const timeList = ['8:30-10:05', '10:20-11:55', '12:10-13:55']
+
+/* ############################################################################### */
+
+const discreteMathematics = {
+    name: 'Дискретная математика'
+}
+
+const TOI = {
+    name: 'ТОИ'
+}
+
+const PICells = {
+    [timeList[0]]: discreteMathematics,
+    [timeList[1]]: discreteMathematics,
+    [timeList[2]]: TOI
+}
+
+const PMiICells = {
+    [timeList[0]]: discreteMathematics,
+    [timeList[1]]: TOI,
+    [timeList[2]]: discreteMathematics
+}
+
+const FIiITCells = {
+    [timeList[1]]: TOI,
+    [timeList[2]]: TOI
+}
+
+const SundayColumn = {
+    [firstPIdirection.abbr_key]: PICells,
+    [firstFIiITdirection.abbr_key]: FIiITCells,
+    [firstPMiIdirection.abbr_key]: PMiICells
+}
+
+export const timetableExample = {
+    'Понедельник': SundayColumn 
+}

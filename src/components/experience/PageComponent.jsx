@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import HeaderComponent from './HeaderComponent'
 
-import {faculties, courcesTypes, courceList, directions, timeList} from './facultyData'
+import {faculties, courcesTypes, courceList, directions, timeList, timetableExample} from './facultyData'
 
 import ContentComponent from './ContentComponent'
 
@@ -56,6 +56,9 @@ class PageComponent extends Component {
                     ))}
                 </ul>
                 <ContentComponent
+                    times={timeList}
+                    directions={currentDirections}
+                    timetableExample={timetableExample}
                 />
             </div>
         )
