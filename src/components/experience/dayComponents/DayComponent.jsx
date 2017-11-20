@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import DayHeader from './DayHeader'
-
+import DayLine from './DayLine'
 
 const containerStyle = {
     display: 'flex',
@@ -15,15 +15,15 @@ const columnStyle = {
 }
 
 const itemStyle = {
-    flex: 1
+    width: '100px',
+    border: '1px solid black'
 }
 
 class DayComponent extends Component {
     render() {
         const times = [...this.props.times]
+        /*
         const dayTimeTable = {}
-        const growLenght = this.props.directions.length + 1
-        console.log(growLenght)
         times.map((time, key) => {
             this.props.directions.map((direction, dkey) => {
                 if (!(this.props.timetableExample
@@ -46,8 +46,34 @@ class DayComponent extends Component {
                 dayTimeTable[direction.abbr_key] = Object.assign({}, dayTimeTable[direction.abbr_key], timeObject)
             })
         })
+        */
         return (
             <div style={containerStyle}>
+                <h4 className='title is-4' style={{backgroundColor: 'green', margin: 0}}> {this.props.day} </h4>
+                <div style={containerStyle}> 
+                    <DayHeader
+                        directions={this.props.directions}
+                    />
+                    {times.map((time, key) => (
+                        <div key={key} style={columnStyle}>
+                            <div style={itemStyle}>{time}</div>
+                            { this.props.timetableExample ?
+                                <DayLine
+                                    directions={this.props.directions}
+                                    timeTable={this.props.timetableExample[time]}
+                                />
+                                : null
+                            }
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+}
+
+/*
+ <div style={containerStyle}>
                 <h4 className='title is-4' style={{backgroundColor: 'green', margin: 0}}> {this.props.day} </h4>
                 <div style={containerStyle}> 
                     <DayHeader
@@ -66,9 +92,7 @@ class DayComponent extends Component {
                     ))}
                 </div>
             </div>
-        )
-    }
-}
+*/
 
 DayComponent.propTypes = {
     day: PropTypes.string,

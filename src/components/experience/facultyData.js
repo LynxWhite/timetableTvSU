@@ -99,37 +99,66 @@ export const timeList = ['8:30-10:05', '10:20-11:55', '12:10-13:55']
 
 /* ############################################################################### */
 
-const discreteMathematics = {
-    name: 'Дискретная математика'
+// 0 = оба
+// 1 = +
+// 2 = -
+const discreteMathematicsP = {
+    name: 'Дискретная математика',
+    plus_minus: '+'
 }
 
-const TOI = {
-    name: 'ТОИ'
+const discreteMathematicsM = {
+    name: 'Дискретная математика',
+    plus_minus: '-'
 }
 
-const PICells = {
-    [timeList[0]]: discreteMathematics,
-    [timeList[1]]: discreteMathematics,
-    [timeList[2]]: TOI
+const TOIP = {
+    name: 'ТОИ',
+    plus_minus: '+'
+}
+const TOIM = {
+    name: 'ТОИ',
+    plus_minus: '-'
 }
 
-const PMiICells = {
-    [timeList[0]]: discreteMathematics,
-    [timeList[1]]: TOI,
-    [timeList[2]]: discreteMathematics
-}
-
-const FIiITCells = {
-    [timeList[1]]: TOI,
-    [timeList[2]]: TOI
-}
-
-const SundayColumn = {
-    [firstPIdirection.abbr_key]: PICells,
-    [firstFIiITdirection.abbr_key]: FIiITCells,
-    [firstPMiIdirection.abbr_key]: PMiICells
+const time11 = {
+    [timeList[0]]: {
+        [firstPIdirection.abbr_key]: {
+            '-': [discreteMathematicsM],
+            '+': [discreteMathematicsP]
+        },
+        [firstPMiIdirection.abbr_key]: {
+            '-': [discreteMathematicsM],
+            '+': [discreteMathematicsP]
+        }
+    },
+    [timeList[1]]: {
+        [firstPIdirection.abbr_key]: {
+            '-': [discreteMathematicsM],
+            '+': [TOIP]
+        },
+        [firstFIiITdirection.abbr_key]: {
+            '+': [TOIP]
+        },
+        [firstPMiIdirection.abbr_key]: {
+            '-': [discreteMathematicsM]
+        }
+    },
+    [timeList[2]]: {
+        [firstPIdirection.abbr_key]: {
+            '-': [discreteMathematicsM],
+            '+': [TOIP]
+        },
+        [firstFIiITdirection.abbr_key]: {
+            '+': [TOIP]
+        },
+        [firstPMiIdirection.abbr_key]: {
+            '-': [discreteMathematicsM],
+            '+': [discreteMathematicsP]
+        }
+    }
 }
 
 export const timetableExample = {
-    'Понедельник': SundayColumn 
+    'Понедельник': time11 
 }
