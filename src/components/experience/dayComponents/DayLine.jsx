@@ -10,7 +10,8 @@ const containerStyle = {
 const oneLineContainerStyle = {
     flexDirection: 'row',
     backgroundColor: 'orange',
-    display: 'flex'
+    display: 'flex',
+    flex: '1'
 }
 
 const itemStyle = {
@@ -21,24 +22,83 @@ class DayLine extends Component {
     render() {
         console.log('directions: ', this.props.directions)
         console.log('items: ', this.props.timeTable)
-        console.log(this.props.timeTable[this.props.directions[0].abbr_key]['-'])
         const minusLine = []
         const plusLine  = []
         const bothLine  = []
+        // 1) Объединение по вертикали
         this.props.directions.map((direction, key) => {
             if (this.props.timeTable[direction.abbr_key]
                 && this.props.timeTable[direction.abbr_key]['-']
                 && this.props.timeTable[direction.abbr_key]['+']
                 && this.props.timeTable[direction.abbr_key]['-'][0].name === this.props.timeTable[direction.abbr_key]['+'][0].name) {
-                console.log('общая ячейка')
-                bothLine.push(Object.assign({}, this.props.timeTable[direction.abbr_key]['-'], {verticalflex: 2}))
+                bothLine.push({ subjects: this.props.timeTable[direction.abbr_key]['-'], heightFlex: 2})
             } else {
-                bothLine.push(null)
+                bothLine.push({ subjects: this.props.timeTable[direction.abbr_key], heightFlex: 1})
             }
         })
+
+
         console.log('объединение: ', bothLine)
         return (
-            <div style={containerStyle}>
+            <div style={oneLineContainerStyle}>
+                {bothLine.map((items, key)=>(
+                    items.heightFlex === 1 ? (
+                        items.subjects ? (
+                            <div key={key} style={containerStyle}>
+                                <div style={itemStyle}>
+                                    {items.subjects['-'] && items.subjects['-'].map((subject, skey) => (
+                                        <div key={skey} style={itemStyle}>
+                                            {subject.name + ' -'}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div style={itemStyle}>
+                                    {items.subjects['+'] && items.subjects['+'].map((subject, skey) => (
+                                        <div key={skey} style={itemStyle}>
+                                            {subject.name + ' +'}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
+                            <div key={key} style={itemStyle} />
+                        )
+                    ) : (
+                        <div key={key} style={containerStyle}>
+                            {items.subjects.map((subject, skey) => (
+                                <div key={skey} style={itemStyle}>
+                                    {subject.name}
+                                </div>
+                            ))}
+                        </div>
+                    )
+                ))}
+            </div>
+        )
+    }
+}
+
+/*
+items.subjects ? 
+                            <div key={key} style={containerStyle}>
+                                <div style={itemStyle}>
+                                    Пусто
+                                </div>
+                                <div style={itemStyle}>
+                                    Пусто
+                                </div>
+                            </div>
+                            : <div style={itemStyle}>
+                                Пусто
+                            </div>
+                        :
+                        <div key={key} style={itemStyle}>
+                            бла2
+                        </div>
+*/
+
+/*
+<div style={containerStyle}>
                 <div style={oneLineContainerStyle}>
                     {this.props.directions.map((direction, key) => (
                         <div key={key} style={itemStyle}> 
@@ -58,9 +118,7 @@ class DayLine extends Component {
                     ))}
                 </div>
             </div>
-        )
-    }
-}
+*/
 
 DayLine.propTypes = {
     directions: PropTypes.array,
