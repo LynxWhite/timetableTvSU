@@ -77,7 +77,7 @@ const fourthBIdirection = {
 }
 
 const firstBachelorPMK = [firstPIdirection, firstPMiIdirection, firstFIiITdirection]
-const foursBachelorPMK = [firstPIdirection, fourthBIdirection, firstPMiIdirection ,firstFIiITdirection]
+const foursBachelorPMK = [firstPIdirection, fourthBIdirection, firstPMiIdirection, firstFIiITdirection]
 
 const directionsOfPMK = {
     [bachelorType.key]: {
@@ -130,6 +130,9 @@ const time11 = {
         [firstPMiIdirection.abbr_key]: {
             '-': discreteMathematicsM,
             '+': discreteMathematicsP
+        },
+        [fourthBIdirection.abbr_key]: {
+            '-': discreteMathematicsM
         }
     },
     [timeList[1]]: {

@@ -33,7 +33,7 @@ class DayDirectionLine extends Component {
         }
         // console.log('странный случай', subjects['-'].name, subjects['+'].name, week)
         return (
-            <td style={{width: '20%', backgroundColor: '#48d1cc'}} colSpan={colSpan[week]} > {subjects[week].name + (colSpan[week] === 1 ? (' ' + week) : '')} </td>
+            <td style={{width: '20%', backgroundColor: '#48d1cc'}} colSpan={colSpan[week]} > {subjects[week].name + week} </td>
         )
     }
 }
