@@ -124,37 +124,37 @@ const TOIM = {
 const time11 = {
     [timeList[0]]: {
         [firstPIdirection.abbr_key]: {
-            '-': [discreteMathematicsM],
-            '+': [discreteMathematicsP]
+            '-': discreteMathematicsM,
+            '+': discreteMathematicsP
         },
         [firstPMiIdirection.abbr_key]: {
-            '-': [discreteMathematicsM],
-            '+': [discreteMathematicsP]
+            '-': discreteMathematicsM,
+            '+': discreteMathematicsP
         }
     },
     [timeList[1]]: {
         [firstPIdirection.abbr_key]: {
-            '-': [discreteMathematicsM],
-            '+': [TOIP]
+            '-': discreteMathematicsM,
+            '+': TOIP
         },
         [firstFIiITdirection.abbr_key]: {
-            '+': [TOIP]
+            '+': TOIP
         },
         [firstPMiIdirection.abbr_key]: {
-            '-': [discreteMathematicsM]
+            '-': discreteMathematicsM
         }
     },
     [timeList[2]]: {
         [firstPIdirection.abbr_key]: {
-            '-': [discreteMathematicsM],
-            '+': [TOIP]
+            '-': discreteMathematicsM,
+            '+': TOIP
         },
         [firstFIiITdirection.abbr_key]: {
-            '+': [TOIP]
+            '+': TOIP
         },
         [firstPMiIdirection.abbr_key]: {
-            '-': [discreteMathematicsM],
-            '+': [discreteMathematicsP]
+            '-': discreteMathematicsM,
+            '+': discreteMathematicsP
         }
     }
 }

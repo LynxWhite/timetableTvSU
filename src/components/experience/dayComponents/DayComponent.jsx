@@ -61,6 +61,7 @@ class DayComponent extends Component {
                                 <DayLine
                                     directions={this.props.directions}
                                     timeTable={this.props.timetableExample[time]}
+                                    time={time}
                                 />
                                 : null
                             }
