@@ -63,7 +63,7 @@ class DayLine extends Component {
             let stopPlus = false
             for (let i = key + 1; i < directions.length; i++) {
                 const someDirection = directions[i]
-                if (!timeTable[someDirection.abbr_key]) {break}
+                if (!timeTable[someDirection.abbr_key] || !timeTable[direction.abbr_key]) {break}
                 if (timeTable[someDirection.abbr_key]['-']
                     && timeTable[direction.abbr_key]['-']
                     && timeTable[someDirection.abbr_key]['-'].name === timeTable[direction.abbr_key]['-'].name
