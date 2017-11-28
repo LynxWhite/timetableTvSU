@@ -33,6 +33,22 @@ class PageComponent extends Component {
 
     render() {
         const choosedCourcesList = courceList[this.state.selectedFaculty]
+        if (!directions[this.state.selectedFaculty][this.state.selectedCourseType]) {
+            return <HeaderComponent 
+                faculties={faculties} 
+                selected={this.state.selectedFaculty} 
+                selectFaculty={this.selectFaculty} 
+
+                courcesTypes={courcesTypes}
+                selecedType={this.state.selectedCourseType}
+                selectCourceType={this.selectCourceType}
+
+                selectedCource={this.state.selectedCource}
+                choosedCourcesList={choosedCourcesList}
+                selectCource={this.selectCource}
+            />
+        }
+        
         const currentDirections = directions[this.state.selectedFaculty][this.state.selectedCourseType][this.state.selectedCource]
         return (
             <div>
