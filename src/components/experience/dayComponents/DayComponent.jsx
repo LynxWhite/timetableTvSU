@@ -22,31 +22,6 @@ const itemStyle = {
 class DayComponent extends Component {
     render() {
         const times = [...this.props.times]
-        /*
-        const dayTimeTable = {}
-        times.map((time, key) => {
-            this.props.directions.map((direction, dkey) => {
-                if (!(this.props.timetableExample
-                    && this.props.timetableExample[direction.abbr_key]
-                    && this.props.timetableExample[direction.abbr_key][time])
-                ) {
-                    const objects = {name: 'null', grow: 1}
-                    const timeObject = {[time]: objects}
-                    dayTimeTable[direction.abbr_key] = Object.assign({}, dayTimeTable[direction.abbr_key], timeObject) 
-                    return
-                }
-                if (dkey > 0 
-                    && this.props.timetableExample[direction.abbr_key][time].name === dayTimeTable[this.props.directions[dkey - 1].abbr_key][time].name
-                ) {
-                    console.log('Условие сработало')
-                    dayTimeTable[this.props.directions[dkey - 1].abbr_key][time].grow += 1
-                    return
-                }
-                const timeObject = {[time]: Object.assign({}, this.props.timetableExample[direction.abbr_key][time], {grow: 1})}
-                dayTimeTable[direction.abbr_key] = Object.assign({}, dayTimeTable[direction.abbr_key], timeObject)
-            })
-        })
-        */
         return (
             <div style={containerStyle}>
                 <h4 className='title is-4' style={{backgroundColor: 'green', margin: 0}}> {this.props.day} </h4>

@@ -11,7 +11,6 @@ class DayDirectionLine extends Component {
         }
         if (subjects === undefined) {
             if (week === '-') {
-                console.log('HARD COORDINATE', this.props.index, 2)
                 return (
                     <div 
                         style={{
