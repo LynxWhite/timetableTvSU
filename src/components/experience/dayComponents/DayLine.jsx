@@ -10,8 +10,6 @@ class DayLine extends Component {
                 {}, 
                 this.state.wrapperStyle, 
                 {gridTemplateColumns: 'repeat(' + this.props.directions.length + ', ' + cellWidth + '%)'})})
-            // directions.map(direction => cellWidth + '%').join(' ')
-            console.log('hell', this.wrapperStyle)
         }
     }
     componentWillReceiveProps(nextProps) {
@@ -21,8 +19,6 @@ class DayLine extends Component {
                 {}, 
                 this.state.wrapperStyle, 
                 {gridTemplateColumns: 'repeat(' + nextProps.directions.length + ', ' + cellWidth + '%)'})})
-            // directions.map(direction => cellWidth + '%').join(' ')
-            console.log('hell', this.wrapperStyle)
         }
     }
 

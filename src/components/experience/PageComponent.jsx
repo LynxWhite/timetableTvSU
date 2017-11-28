@@ -17,17 +17,17 @@ class PageComponent extends Component {
     }
 
     selectFaculty = (e) => {
-        console.log('selected: ', e.target.value)
+        // console.log('selected: ', e.target.value)
         this.setState({selectedFaculty: e.target.value})
     }
 
     selectCourceType = (e) => {
-        console.log('selected cource type: ', e.target.value)
+        // console.log('selected cource type: ', e.target.value)
         this.setState({selectedCourseType: e.target.value})
     }
 
     selectCource = (e) => {
-        console.log('selected cource: ', e.target.value)
+        // console.log('selected cource: ', e.target.value)
         this.setState({selectedCource: parseInt(e.target.value)})
     }
 
